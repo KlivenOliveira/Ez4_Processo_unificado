@@ -1,0 +1,110 @@
+<html>
+
+<head>
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css" />
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	<link rel="stylesheet" href="./style.css">
+	<script type="text/javascript" src="script.js"> </script>
+</head>
+
+<body>
+	
+
+	<div class="fluig-style-guide">
+		<form name="form" role="form">
+			   <div id="panel-heading" class="panel panel-primary panel-info">
+				
+				<div  class="panel-heading">
+					<h3 class="panel-title">Selecione o tipo de solicitao<p></h3>
+					<select required onchange="addHide()"  class="form-control" id="solicitacao" name="solicitacao">
+						<option  disabled selected   value="selecione">Selecione</option>
+						<option  value="interna" name="interna">Interna</option>
+						<option  value="externa" name="externa">Externa Linkedin</option>
+					</select>
+				</div>
+				</div>
+			
+			<div id="panel-body" hidden class="panel  panel-info">
+				<div id="body"   class="panel-body">
+			<div class="row">
+				<div class="form-group col-md-3">
+					<label for="input_contexto">Contexto<span class="span">*</span></label>
+					<input   required type="text"  name="input_contexto" class="form-control" id="input_contexto" placeholder="Digite um contexto" />
+				</div>
+				
+
+				<div id="tamanho" class="form-group col-md-2">
+					<label for="input_tamanho">Tamanho <span class="span">*</span> </label>
+					<input  required type="text"  name="input_tamanho" class="form-control" id="input_tamanho" placeholder="tamanho" />
+				</div>
+
+				<div class="form-group  col-md-2">
+					<label for="veiculacao">Local de veiculacao<span class="span">*</span></label>
+					<select  id="sct_veiculacao" required class="form-control" name="veiculacao">
+						<option selected disabled value="selecione">Selecione</option>
+						<option value="opcao1" name="opcao1">Linkedin</option>
+						<option value="opcao2" name="opcao1">Divulgacao interna</option>
+					</select>
+				</div>
+
+				<div class="form-group col-md-2">
+					<label for="input_dta">Data de entrega<span class="span">*</span></label>
+					<input  required type="text" id="input_dta" name="input_dta" id="input_dta" class="form-control">
+				</div>
+
+
+
+				<div id="area" class="form-group col-md-2">
+					<label for="input_area">area<span class="span">*</span></label>
+					<input  required type="text"  hide class="form-control" name="input_area" id="input_area" placeholder="Area de atuacao" />
+				</div>
+			</div><!---- fim da row-->	
+
+				
+
+					<div class="row">
+						<div class="col-md-2">
+					<label for="Direcionamento_da_comunicao">Direcionamento da comunicao<span class="span">*</span></label>
+						<select  required class="form-control" name="comunicacao" id="Direcionamento_da_comunicao">
+							<option disabled  selected  value="selecione">Selecione</option>
+							<option value="1"  name="opcao1">todas as unidades</option>
+							<option value="2" name="opcao2">Sorocaba</option>
+							<option value="3" name="opcao3">Cosmopolis</option>
+							<option value="4" name="opcao4">Sao vicente</option>
+							<option value="5" name="opcao5">Urussanga</option>
+							<option value="6" name="opcao6">Vespasiano</option>
+							<option value="7" name="opcao7">Taubate</option>
+							<option value="8" name="opcao8">Carbolog Sao Vicente</option>
+							<option value="9" name="opcao9">Carbolog Sao Sebasti o</option>
+							<option value="10" name="opcao10">Carbolog Taubate</option>
+							<option value="11" name="opcao11">Unicarbo Sorocaba</option>
+						</select>
+					</div>
+					</div>
+					<div class="row">
+						
+					<div class="aprovacao" hidden style="padding-top:25px;padding-left:30% ;" id="aprovacao">					
+						<button type="button" id="aprovado" onclick="receberValor(0)" class="btn  btn-success">Aprovar</button>
+						<button type="button" id="reprovado" onclick="receberValor(1)" class="btn btn-danger">Reprovar</button>
+					</div>
+				</div>
+			</div>
+		</div>	
+		<!---- campo OCuto-->
+		<input id="decisao_oculto" name="decisao_oculto" class="decisao_oculto" value="2"  type="hidden"/>
+		<script>
+			var calendarioDataNascimento = FLUIGC.calendar('#input_dta');
+		</script>
+		</form>
+		</div>
+		
+	
+</body>
+
+
+
+
+</html>
