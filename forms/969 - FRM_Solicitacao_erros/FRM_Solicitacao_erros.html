@@ -1,0 +1,187 @@
+<html lang="pt-br">
+
+<head>
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css" />
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="./script.js" charset="utf-8"></script>
+	<script type="text/javascript" src="./botoes.js" charset="utf-8"></script>
+	<link rel="stylesheet" href="style.css"></link>
+	<link rel="stylesheet" href="botoes.css"></link>
+	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+	<meta charset="utf-8">
+</head>
+
+<body>
+
+
+	<div class="fluig-style-guide">
+		<form name="form" role="form">
+			<input id="hid_value" name="hid_value" class="hid_value" type="hidden" />
+			<div class="panel-group" id="accordione">
+				<div class="panel panel-sub">
+					<div class="panel-heading">
+						<a data-toggle="collapse" data-parent="#accordione" href="#collapseOne">
+							<h3 class="panel-title">
+								Informações pessoais
+							</h3>
+						</a>
+					</div>
+				</div>
+				<div id="collapseOne" class="panel-collapse collapse in">
+					<div class="panel panel panel-info">
+						<div class="panel-body">
+							<div class="form-group col-xs-12  col-md-4">
+								<label id="txt_nome_l" for="txt_nome">Nome Completo do solicitante<span class="span">*</span></label>
+								<input  style="width:20vw;" class="form-control  input-sm" placeholder="Digite seu nome Completo" type="text" name="txt_nome" id="txt_nome" />
+							</div>
+
+							<div class=" form-group col-xs-12  col-md-4">
+								<label id="txt_matricula_l"   class="control-label" for="txt_matricula">Nº Matricula solicitante<span class="span">*</span></label>
+								<input style="width:11	vw;" class="form-control  input-sm" type="number" placeholder="Digite o numero de matricula"
+									name="txt_matricula" id="txt_matricula" />
+							</div>
+
+							<div class=" form-group col-xs-12  col-md-4">
+								<label id="txt_CPF_l" class="control-label" for="txt_CPF">CPF do solicitante<span class="span">*</span></label>
+								<input  style="width:10vw;" class="form-control input-sm" placeholder="preencha CPF" maxlength="14"
+									mask="000.000.000-00" type="text" name="txt_CPF" id="txt_CPF" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+				<div class="panel-group" id="accorditwo">
+					<div class="panel panel-sub">
+						<div class="panel-heading">
+							<a data-toggle="collapse" data-parent="#accorditwo" href="#collapsetwo">
+								<h3 class="panel-title">
+									Informações adicionais
+								</h3>
+							</a>
+						</div>
+					</div>
+					<div id="collapsetwo" class="panel-collapse collapse in ">
+						<div class="panel  panel-info">
+							<div class="panel-body">
+								<div class=" form-group col-xs-12  col-md-4">
+									<label  id="slct_coligada_l" class="control-label" for="slct_coligada">Coligada de origem do erro <span
+											class="span">*</span></label>
+									<select style="width:15vw;" class="form-control   input-sm"
+										placeholder="Selecione a qual afiliação pertence o erro" name="slct_coligada"
+										id="slct_coligada">
+										<option disabled selected value="selecione">selecione</option>
+										<option value="unimetal_cosmopolis">Unimetal Cosmópolis</option>
+										<option value="unimetal_sao_vicente">Unimetal São Vicente</option>
+										<option value="unimetal_sorocaba">Unimetal Sorocaba</option>
+										<option value="unimetal_taubate">Unimetal Taubaté</option>
+										<option value="unimetal_urussanga">Unimetal Urussanga</option>
+										<option value="carbolog">Carbolog</option>
+										<option value="unicarbo">Unicarbo</option>
+										<option value="uniservice">Uniservice</option>
+										<option value="carboservices">Carboservices</option>
+										<option value="cargozilla">Cargozilla</option>
+										<option value="vitoriapar">Vitoriapar</option>
+									</select>
+								</div>
+
+								<div class=" form-group col-xs-12  col-md-4">
+									<label  id="slct_erro_l" class="control-label"  for="slct_erro">tipo de erro<span class="span">*</span></label>
+									<select class="form-control  input-sm" style="width:20vw;" placeholder="Selecione o possivel erro"
+										name="slct_erro" id="slct_erro">
+										<option disabled selected value="selecione">selecione</option>
+										<option value="first-access">Erro no acesso (primeiro acesso)</option>
+										<option value="already-has-access">Erro no acesso (Já possui acesso)</option>
+										<option value="hierarchy-error">Erro de hierarquia</option>
+										<option value="affiliation-transfer-ex-employee">Erro de coligada /
+											Transferência / ex-colaborador</option>
+									</select>
+								</div>
+								
+
+								<div class="col-md-4">
+									<div class="form-group">
+										<label  class="control-label">Prints erros</label>
+										<div class="componentAnexo">
+											<div class="input-group">
+												<input type="hidden" class="descAnexo" name="fdCpf" value="Print do erro" />
+												<input type="text"  style="width:20vw;"   id="fnCpf" name="fnCpf" class="form-control inputAnexo input-sm" placeholder="Selecione um arquivo" readonly />
+											</div>
+											<div class="icones">
+												<button type="button" class="btnUpFile btn btn-success" data-acao="upload" onclick="anexo(event)" title="Selecionar">
+													<i class="fluigicon fluigicon-file-upload "></i>
+												</button>
+												<button style="display: none;" type="button" class="btnViewerFile btn btn-info " data-acao="viewer" onclick="anexo(event)" title="Visualizar" disabled>
+													<i class="fluigicon fluigicon-eye-open "></i>
+												</button>
+												<button style="display: none;" type="button" class="btnDownloadFile btn btn-info " data-acao="download" onclick="anexo(event)" title="Download" disabled>
+													<i class="fluigicon fluigicon-download "></i>
+												</button>
+											</div>
+										</div>
+									</div>
+								</div>
+									<div id="ultimaRow" class=" form-group col-md-6 col-xs-12">
+
+									</div>
+							</div>
+							
+
+							<!--<div class=""
+								 <div class=" form-group col-xs-12  col-md-3">
+									<label for="f_error" class="control-label">Anexar Arquivo do erro<span
+											class="span">*</span></label>
+									<input type="hidden" class="descAnexo" name="fdCpf" value="CPF" />
+									<input type="text" id="fnCpf" name="fnCpf" class="form-control inputAnexo input-sm" placeholder="Selecione o print do erro" readonly />
+									<button type="button" class="btnUpFile btn btn-success btn-sm" data-acao="upload"
+										onclick="anexo(event)" title="Selecionar">
+										<i class="fluigicon fluigicon-file-upload icon-sm"></i>
+									</button>
+								</div>
+							</div>  -->
+								
+								
+							</div>
+						</div>
+					</div>
+				
+			
+
+			<div class="row">
+				<div class="aprovacao">
+					<div class="panel panel-sub-ncollpase" style="margin-top:5vh;">
+						<div class="panel-heading">
+							<h3 id="text_perguntaFinal" class="panel-title"></h3>
+							<!--small>Preencha dados sobre o orgão público</small-->
+						</div>
+					</div>
+					<div class="col-md-6">
+						<button disabled class="btn btn-primary" id="btn_aprovar" onclick="wrk_process(2)"
+							style="width: 100%">
+							Aprovar
+						</button>
+					</div>
+					<!-- Botao Revisar -->
+					<div class="col-md-6">
+						<button disabled class="btn btn-primary" id="btn_reprovar" onclick="wrk_process(0)"
+							style="width: 100%">
+							Reprovar
+						</button>
+					</div>
+				 </div>
+				</div>
+			</div>
+		</form>
+	</div>
+
+
+</body>
+<script>
+	var beforeSendValidate = function (numState, nextState) {
+		return validaForms(numState, nextState);
+	}
+</script> 
+</html>

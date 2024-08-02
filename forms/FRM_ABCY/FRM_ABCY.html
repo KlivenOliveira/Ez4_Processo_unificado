@@ -1,15 +1,261 @@
-<html>
-<head>
-	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
-	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
-	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
-	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
-	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
-</head>
-<body>
-<div class="fluig-style-guide">
-<form name="form" role="form">
-</form>
-</div>
-</body>
-</html>
+	<html lang="pt-br">
+
+	<head>
+		<meta charset="utf-8">
+		<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css" />
+		<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+		<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+		<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+		<link rel="stylesheet" href="./style.css">
+		<script type="text/javascript" src="./script.js"></script>
+	</head>
+
+	<body>
+		<!----Tiutlo------>
+		<div class="fluig-style-guide">
+			<form name="form" role="form">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h1 class="panel-title" style="color:#17a2b8;font-size:2em;"><i
+								class="flaticon flaticon-flight icon-lg" aria-hidden="true" style="margin-right:0.5em;"></i>solicitação de viagem</h1>
+					</div>
+				</div>
+				
+				<!------Primeiro Collpse------>
+				<div class="panel-group"  id="locked" >
+					<div class="panel  panel-default" >
+						<div class="panel-heading">
+							<a class="collapse-icon up" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+							<h3 class="panel-title" >
+								<i class="flaticon flaticon-person icon-md" aria-hidden="true"></i>passageiros<BR>
+								<small>preencha informações do passageiro<span class="span">*</span></small>
+							</h3>
+							</a>
+						</div>
+					
+				<!-----Campos Obrigatorios ----->
+				<div id="collapseOne"  class="panel-collapse">
+					<div class="panel-body">
+						<div class="row">
+							<!----Nome---->
+							<div class="form-group col-md-3">
+								<label for="txt_passageiro">Nome do passageiro<span class="span">*</span></label>
+								<input  type="text" name="txt_passageiro" class="form-control" id="txt_passageiro"
+								placeholder="Digite nome do passageiro" />
+							</div>
+							<!----EMAIL-->
+							<div class="form-group col-md-3">
+								<label for="txt_email">Email<span class="span">*</span></label>
+								<input  type="email" name="txt_email" class="form-control" id="txt_email"
+								placeholder="Digite o email passageiro" />
+							</div>
+							
+
+							<!--------SC-------->
+							<div class="form-group  col-md-2">
+								<label>SC aprovada?<span class="span">*</span></label>
+								<select id="sc_aprovada" class="form-control" name="sc_aprovada">
+									<option value='0' name="sim">Desaprovada</option>
+									<option value='2' name="nao">Aprovada</option>
+								</select>
+							</div>
+							<!-----CPF---->
+							<div class="form-group col-md-2">
+								<label for="txt_cpf">CPF<span class="span">*</span></label>
+								<input  type="text" name="txt_cpf" class="form-control" id="txt_cpf"
+								mask="000.000.000-00" placeholder="CPF" />
+							</div>
+							<!-----Data De nascimento-->
+							<div class="form-group col-md-2">
+								<label for="dte_nasc">Data de nascimento<span class="span">*</span></label>
+								<input   type="date" name="dte_nasc" class="form-control" id="dte_nasc"
+								placeholder="Digite a data de nascimento" />
+							</div>
+									<!----Discriminar-->
+							<div class="form-group col-md-11">
+								<label for="txt_projeto">Discriminar solicitação/projeto <span class="span">*</span></label>
+								<input  type="text" name="txt_projeto" class="form-control" id="txt_projeto"
+								placeholder="?????" />
+							</div>
+							
+						</div>  <!---------Fim da row--------->
+					</div>
+				</div>
+			</div>
+	
+		
+		
+			<!---Segundo Colapse---->
+	 <!----	<div class="panel-group" id="accordion">  -->
+			<div class="panel panel-default">
+				<!----Titulo com heading-->
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a class="collapse-icon up" id="collapse_two" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+							<h3><span class=""><i class="flaticon flaticon-briefcase icon-md" aria-hidden="true"></i></span>
+								 	Hospedagem<br>
+								<small>preencha dados da Hospedagem</small>
+							</h3>
+						</a>
+					</h4>
+				</div>
+	
+				<!-----Campos Opcionais ----->
+				<div id="collapseTwo" class="panel-collapse collapse in">
+					<div class="panel-body">
+						<div class="row">
+						<!-----Campo Hospedagem cidade/estado-------->
+							<div class="form-group col-md-2">
+								<label for="txt_ce">Cidade/Estado</label>
+								<input  type="text" name="txt_ce" class="form-control" id="txt_ce"
+								placeholder="Digite destino de Hospedagem" />
+							</div>
+
+							<div class="form-group col-md-2">
+								<label for="dte_cheg">Data de Chegada</label>
+								<input  type="date" name="dte_cheg" class="form-control" id="dte_cheg"
+								placeholder="Digite a data de chegada" />
+							</div>
+
+							<div class="form-group col-md-2">
+								<label for="dte_saida">Data de saida</label>
+								<input  type="date" name="dte_saida" class="form-control" id="dte_saida"
+								placeholder="Digite a data de saida" />
+							</div>
+
+							<div class="form-group col-md-2">
+								<label for="txt_pref">Hotel de preferencia</label>
+								<input  type="text" name="txt_pref" class="form-control" id="txt_pref"
+								placeholder="Digite o hotel de preferencia" />
+							</div>
+
+							<div class="form-group col-md-2">
+								<label for="txt_origem" >Ida Origem</label>
+								<input  type="text" name="txt_origem" class="form-control" id="txt_origem"
+								placeholder="Digite a Origem do passageiro" />
+							</div>
+
+
+							<div class="form-group col-md-2 ">
+								<label for="txt_dest">Ida Destino</label>
+								<input  type="text" name="txt_dest" class="form-control" id="txt_dest"
+								placeholder="Digite destino de Hospedagem" />
+							</div>
+						</div> <!---Fim da row-->
+					<!----------Campo Opcional2-------------->
+						<div class="row">
+						<div class="form-group  s_linha col-md-2">
+							<label for="txt_volta_origem">Passagem  Volta origem</label>
+							<input  type="txt_volta_origem" name="txt_volta_origem" class="form-control " id="txt_volta_origem"
+							placeholder="????" />
+						</div>
+
+						<div class="form-group s_linha col-md-2">
+							<label for="txt_volta_destino">Passagem  Volta  Destino</label>
+							<input  type="text" name="txt_volta_destino" class="form-control " id="txt_volta_destino"
+							placeholder="?????" />
+						</div>
+
+						<div class="form-group s_linha col-md-2">
+							<label for="dte_ida">Data de  ida</label>
+							<input  type="date" name="dte_ida" class="form-control " id="dte_ida"
+							placeholder="data de ida" />
+						</div>
+
+						<div class="form-group s_linha col-md-2">
+							<label for="dte_volta" >Data de volta</label>
+							<input  type="date" name="dte_volta" class="form-control " id="dte_volta"
+							placeholder="data de saida" />
+						</div>
+
+						<div class="form-group s_linha col-md-2">
+							<label for="txt_despache">Vai despachar bagagem?</label>
+							<select id="txt_despache"  class="form-control " name="txt_despache">
+								<option selected disabled value="selecione">selecione</option>
+								<option value="sim" name="sim">sim</option>
+								<option value="nao" name="nao">nao</option>
+							</select>
+					   </div>
+			     	</div> <!----Fim da Row----->
+			   </div>
+			</div>
+		</div>
+
+			<!--	<div class="panel-group" id="accordion"> -->
+					<div class="panel panel-default">
+						<!----Titulo com heading-->
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a class="collapse-icon up" id="collapse_tree" data-toggle="collapse" data-parent="#accordion" href="#collapseTree">
+									<h3><span class=""><i class="flaticon flaticon-airport-shuttle icon-md" aria-hidden="true"></i></span>
+											 Veiculo<br>
+										<small>Preencha dados de veiculo </small>
+									</h3>
+								</a>
+							</h4>
+						</div>
+					</div>
+						<!-----Campos Opcionais ----->
+						<div id="collapseTree" class="panel-collapse collapse in">
+						 <div class="panel-body">
+							<div class="row">
+								<div class="form-group  col-md-2">
+									<label for="txt_avlr">Local retirada</label>
+									<input  type="text" name="txt_avlr" class="form-control " id="txt_avlr"
+									placeholder="Digite o local de retirada" />
+								</div>
+
+								<div class="form-group  col-md-2">
+									<label for="dte_aluguel" >Data de retirada</label>
+									<input  type="date" name="dte_aluguel" class="form-control " id="dte_aluguel"
+									placeholder="Digite a data de  retirada " />
+								</div>
+
+								<div class="form-group  col-md-2">
+									<label for="txt_retirada">Hora de retirada</label>
+									<input  type="time" name="txt_retirada" class="form-control" mask="00:00" id="txt_retirada"
+									placeholder="Digite a hora de retirada"/>
+								</div>
+
+								<div class="form-group  col-md-2">
+									<label for="txt_entrega" >Local entrega</label>
+									<input  type="text" name="txt_entrega" class="form-control " id="txt_entrega"
+									placeholder="Digite o local de entrega" />
+								</div>
+
+								<div class="form-group  col-md-2">
+									<label for="dte_entrega" >Data de entrega</label>
+									<input  type="date" name="dte_entrega" class="form-control " id="dte_entrega"
+									placeholder="Digite a data" />
+								</div>
+
+								<div class="form-group  col-md-2">
+									<label for="txt_entrada">Hora de entrega</label>
+									<input  type="time" name="txt_entrada" class="form-control " mask="00:00" id="txt_entrada"
+									placeholder="Digite a hora"/>
+								</div>
+								<input id="decisao_oculta" name="decisao_oculta" class="decisao_oculta" value="1"  type="hidden"/>
+						   </div>
+						</div>
+					</div>
+				
+				</div>
+			<div id="btn_app">
+				<button type="button" id="aprovado" onclick="receberValor('2')" class="btn btn-primary btn-lg btn-block "> Aprovar </button>
+				<button type="button" id="reprovado" onclick="receberValor('0')" class="btn btn-primary btn-lg btn-block ">Desaprovar</button>
+				<button type="button" id="alterar" onclick="receberValor('3')" class="btn btn-primary btn-lg btn-block ">alteracao</button>
+			</div>
+				<div id="encerramento">
+					
+				</div>
+			</div>
+				
+		
+		</form>
+	</div>
+	</body>
+
+	</html>
+
+	

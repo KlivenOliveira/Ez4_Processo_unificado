@@ -1,13 +1,9 @@
 //calendario//
-var input_contexto = $('#input_contexto').val() 
-
-
+//var input_contexto = $('#input_contexto').val() 
 
 $(document).ready(function () {
-//$(".panel-body").hide()
-//	$("#aprovado").hide()
-//	$("#reprovado").hide()
-if(numeroAtividadeAtual >0){
+	
+if(numeroAtividadeAtual >0 && numeroAtividadeAtual !=25  && numeroAtividadeAtual !=5 ){
 	$('#input_contexto').prop('readonly',true),
 	$('#input_tamanho').prop('readonly',true),
 	$('#input_tamanho').prop('readonly',true),
@@ -16,8 +12,38 @@ if(numeroAtividadeAtual >0){
 	$('#input_area').prop('readonly',true),
 	$('#Direcionamento_da_comunicao').prop('disabled',true),
 	$('#sct_veiculacao').prop('readonly',true);
-}
+	
+	if(numeroAtividadeAtual == 6  || numeroAtividadeAtual == 25  ||  numeroAtividadeAtual == 27 || numeroAtividadeAtual == 32 || numeroAtividadeAtual == 36 || numeroAtividadeAtual == 49 ){
+		$('#decisao_oculto').val('2')
+		
+	}}
+	validaFinal()
+
 })
+
+
+
+function validaFinal(){
+	var UltimaDiv =  $('#ultimaDiv');
+	var carimbo = $("<button></button>")
+	var decisao = $('#decisao_oculto').val()	
+    if (numeroAtividadeAtual == 4 && decisao == 1 ){
+        UltimaDiv.append(carimbo)
+        carimbo.text('O processo foi reprovado')
+        carimbo.addClass('btn btn-danger btn-lg btn-block btn-sem_cursor')
+    }
+
+
+    if (numeroAtividadeAtual == 4 && decisao == 0 ){{
+        UltimaDiv.append(carimbo)
+        carimbo.text('O processo foi Aprovado')
+        carimbo.addClass('btn btn-success btn-lg btn-block btn-sem_cursor')
+    }
+
+    return carimbo
+}
+}
+
 
 
 
@@ -26,9 +52,11 @@ function addHide() {
 	var selecionado = $("#solicitacao").val()
 	if (selecionado == "externa") {
 		$("#panel-body").show();
+		$('#text_titulo').text('Painel de comunicação externa')
 		$("#tamanho").hide();
 	} else if (selecionado == "interna") {
 		$("#panel-body").show();
+		$('#text_titulo').text('Painel de comunicação interna')
 		$("#tamanho").show();
 	
 }
@@ -50,6 +78,12 @@ function receberValor(decisao){
 			message: 'Processo sera aprovado',
 			type: 'success'
 			})
+		}else if(decisao == 3){
+			FLUIGC.toast({
+				title: 'Alteração' ,
+				message: 'Processo voltara para alteração',
+				type: 'Warning'
+				})
 		}
 	}
 
